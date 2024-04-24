@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.API", "PatientManagement.API\PatientManagement.API.csproj", "{4CA05A7A-65A9-4EBD-80AF-5E3532449725}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.Domain", "PatientManagement.Domain\PatientManagement.Domain.csproj", "{71A7C7D1-75F1-41D2-81E0-7747A0FFA89F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.Application", "PatientManagement.Application\PatientManagement.Application.csproj", "{D0BDF405-0FE9-4D37-A0CA-89F771BAE6E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.Infrastructure", "PatientManagement.Infrastructure\PatientManagement.Infrastructure.csproj", "{A8F1CA21-A376-40B8-A018-85FA8024286B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.CrossCutting", "PatientManagement.CrossCutting\PatientManagement.CrossCutting.csproj", "{716F5D5D-6430-45B9-A6A4-A5C95B7665FA}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "patientmanagement.web", "PatientManagement.Web\patientmanagement.web.esproj", "{060EBCDD-414E-4447-B4FB-74A2A4A519EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CA05A7A-65A9-4EBD-80AF-5E3532449725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA05A7A-65A9-4EBD-80AF-5E3532449725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA05A7A-65A9-4EBD-80AF-5E3532449725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA05A7A-65A9-4EBD-80AF-5E3532449725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A7C7D1-75F1-41D2-81E0-7747A0FFA89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A7C7D1-75F1-41D2-81E0-7747A0FFA89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A7C7D1-75F1-41D2-81E0-7747A0FFA89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A7C7D1-75F1-41D2-81E0-7747A0FFA89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0BDF405-0FE9-4D37-A0CA-89F771BAE6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0BDF405-0FE9-4D37-A0CA-89F771BAE6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0BDF405-0FE9-4D37-A0CA-89F771BAE6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0BDF405-0FE9-4D37-A0CA-89F771BAE6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F1CA21-A376-40B8-A018-85FA8024286B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F1CA21-A376-40B8-A018-85FA8024286B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F1CA21-A376-40B8-A018-85FA8024286B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F1CA21-A376-40B8-A018-85FA8024286B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{716F5D5D-6430-45B9-A6A4-A5C95B7665FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{716F5D5D-6430-45B9-A6A4-A5C95B7665FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{716F5D5D-6430-45B9-A6A4-A5C95B7665FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{716F5D5D-6430-45B9-A6A4-A5C95B7665FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060EBCDD-414E-4447-B4FB-74A2A4A519EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060EBCDD-414E-4447-B4FB-74A2A4A519EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060EBCDD-414E-4447-B4FB-74A2A4A519EE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{060EBCDD-414E-4447-B4FB-74A2A4A519EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060EBCDD-414E-4447-B4FB-74A2A4A519EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060EBCDD-414E-4447-B4FB-74A2A4A519EE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {312BCCF8-3011-4C16-A1F4-7CA9960CF16D}
+	EndGlobalSection
+EndGlobal
