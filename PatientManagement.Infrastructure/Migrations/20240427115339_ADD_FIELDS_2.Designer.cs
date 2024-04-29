@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PatientManagement.Infrastructure.Data;
 
@@ -10,9 +11,11 @@ using PatientManagement.Infrastructure.Data;
 namespace PatientManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240427115339_ADD_FIELDS_2")]
+    partial class ADD_FIELDS_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +47,6 @@ namespace PatientManagement.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Exam3")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Exam4")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Name")

@@ -32,6 +32,38 @@
                                 </select>
                                 <span v-if="submitted && !novoPaciente.sex" class="invalid-feedback">Sexo &eacute; obrigat&oacute;rio</span>
                             </div>
+                            <div class="form-group">
+                                <label for="Exam1">Exame 1:</label>
+                                <input type="number" id="exam1" class="form-control" v-model="novoPaciente.exam1" :class="{ 'is-invalid': submitted && !novoPaciente.exam1 }" required>
+                                <span v-if="submitted && !novoPaciente.exam1" class="invalid-feedback">Exame 1 &eacute; obrigat&oacute;rio</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Exam2">Exame 2:</label>
+                                <select class="form-control" v-model="novoPaciente.exam2" :class="{ 'is-invalid': submitted && !novoPaciente.exam2 }" required>
+                                    <option value="" disabled>SELECIONE</option>
+                                    <option value="CRIAN&Ccedil;A">CRIAN&Ccedil;A</option>
+                                    <option value="ADOLESCENTE">ADOLESCENTE</option>
+                                    <option value="HOMEM ADULTO">HOMEM ADULTO</option>
+                                    <option value="MULHER ADULTA">MULHER ADULTA</option>
+                                </select>
+                                <span v-if="submitted && !novoPaciente.exam2" class="invalid-feedback">Exame 2 &eacute; obrigat&oacute;rio</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Exam4">Exame 4:</label>
+                                <input type="number" id="exam4" class="form-control" v-model="novoPaciente.exam4" :class="{ 'is-invalid': submitted && !novoPaciente.exam4 }" required>
+                                <span v-if="submitted && !novoPaciente.exam4" class="invalid-feedback">Exame 4 &eacute; obrigat&oacute;rio</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Calculation">C&aacute;lculo:</label>
+                                <input type="text" class="form-control" v-model="novoPaciente.calculation" @blur="realizarCalculo" :class="{ 'is-invalid': submitted && !novoPaciente.calculation }" required>
+                                <span v-if="submitted && !novoPaciente.calculation" class="invalid-feedback">C&aacute;lculo &eacute; obrigat&oacute;rio</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exam3">Exame 3:</label>
+                                <input type="number" class="form-control" v-model="novoPaciente.exam3" :class="{ 'is-invalid': submitted && !novoPaciente.exam3 }" readonly>
+                                <span v-if="submitted && !novoPaciente.exam3" class="invalid-feedback">Exame 3 &eacute; obrigat&oacute;rio</span>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" @click="adicionarNovoPaciente">Salvar</button>
@@ -70,6 +102,39 @@
                                 </select>
                                 <span v-if="submittedEdit && !pacienteEditado.sex" class="invalid-feedback">Sexo &eacute; obrigat&oacute;rio</span>
                             </div>
+                            <div class="form-group">
+                                <label for="Exam1">Exame 1:</label>
+                                <input type="number"  id="exam1edit" class="form-control" v-model="pacienteEditado.exam1" :class="{ 'is-invalid': submittedEdit && !pacienteEditado.exam1 }" required>
+                                <span v-if="submittedEdit && !pacienteEditado.exam1" class="invalid-feedback">Exame 1 &eacute; obrigat&oacute;rio</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Exam2">Exame 2:</label>
+                                <select class="form-control" v-model="pacienteEditado.exam2" :class="{ 'is-invalid': submittedEdit && !pacienteEditado.exam2 }" required>
+                                    <option value="" disabled>SELECIONE</option>
+                                    <option value="CRIAN&Ccedil;A">CRIAN&Ccedil;A</option>
+                                    <option value="ADOLESCENTE">ADOLESCENTE</option>
+                                    <option value="HOMEM ADULTO">HOMEM ADULTO</option>
+                                    <option value="MULHER ADULTA">MULHER ADULTA</option>
+                                </select>
+                                <span v-if="submittedEdit && !pacienteEditado.exam2" class="invalid-feedback">Exame 2 &eacute; obrigat&oacute;rio</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Exam4">Exame 4:</label>
+                                <input type="number" id="exam4edit" class="form-control" v-model="pacienteEditado.exam4" :class="{ 'is-invalid': submittedEdit && !pacienteEditado.exam4 }" required>
+                                <span v-if="submittedEdit && !pacienteEditado.exam4" class="invalid-feedback">Exame 4 &eacute; obrigat&oacute;rio</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Calculation">C&aacute;lculo:</label>
+                                <input type="text" class="form-control" v-model="pacienteEditado.calculation" @blur="realizarCalculoEdit" :class="{ 'is-invalid': submittedEdit && !pacienteEditado.calculation }" required>
+                                <span v-if="submittedEdit && !pacienteEditado.calculation" class="invalid-feedback">C&aacute;lculo &eacute; obrigat&oacute;rio</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exam3">Exame 3:</label>
+                                <input type="number" class="form-control text-uppercase" v-model="pacienteEditado.exam3" :class="{ 'is-invalid': submittedEdit && !pacienteEditado.exam3 }" readonly>
+                                <span v-if="submittedEdit && !pacienteEditado.exam3" class="invalid-feedback">Exame 3 &eacute; obrigat&oacute;rio</span>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" @click="salvarEdicaoPaciente">Salvar</button>
@@ -86,8 +151,9 @@
                             <th>Nome</th>
                             <th>Idade</th>
                             <th>Sexo</th>
-                            <th>Exame1</th>
-                            <th>Exame2</th>
+                            <th>Exame 1</th>
+                            <th>Exame 2</th>
+                            <th>Exame 3</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -96,8 +162,9 @@
                             <td>{{ paciente.name }}</td>
                             <td>{{ paciente.age }}</td>
                             <td>{{ paciente.sex }}</td>
-                            <td :class="getExame1Class(paciente)">{{ getExame1Text(paciente) }}</td>
-                            <td :class="getExame2Class(paciente)">{{ getExame2Text(paciente) }}</td>
+                            <td :class="getExame1Class(paciente)">{{ paciente.exam1 }}</td>
+                            <td class="text-uppercase" :class="getExame2Class(paciente)">{{ paciente.exam2 }}</td>
+                            <td>{{ paciente.exam3 }}</td>
                             <td>
                                 <button class="btn btn-secondary" @click="editarPaciente(paciente)">Editar</button>
                                 &nbsp;
@@ -119,14 +186,24 @@
                 novoPaciente: {
                     name: '',
                     age: null,
-                    sex: ''
+                    sex: '',
+                    exam1: null,
+                    exam2: '',
+                    exam3: null,
+                    exam4: null,
+                    calculation: ''
                 },
                 modalAberto: false,
                 pacienteEditado: {
                     id: null,
                     name: '',
                     age: null,
-                    sex: ''
+                    sex: '',
+                    exam1: null,
+                    exam2: '',
+                    exam3: null,
+                    exam4: null,
+                    calculation:''
                 },
                 modalEditarAberto: false,
                 submitted: false,
@@ -164,7 +241,9 @@
                 if (!this.pacienteEditado.name || !this.pacienteEditado.age || !this.pacienteEditado.sex) {
                     return; 
                 }
-
+                if (this.pacienteEditado.exam2) {
+                    this.pacienteEditado.exam2 = this.pacienteEditado.exam2.toUpperCase();
+                }
                 try {
                     const response = await fetch(`http://localhost:5111/api/patient/${this.pacienteEditado.id}`, {
                         method: 'PUT',
@@ -205,6 +284,62 @@
                     console.error('Erro ao excluir paciente:', error);
                 }
             },
+            realizarCalculo() {
+                const exam1 = this.novoPaciente.exam1;
+                const exam4 = this.novoPaciente.exam4;
+
+                const calculo = this.novoPaciente.calculation;
+
+                if (calculo && calculo.trim() !== '') {
+                    try {
+                        let expressao = calculo.replace(/exame1/g, exam1).replace(/exame4/g, exam4);
+
+                        expressao = expressao.replace(/raiz_quadrada/g, 'Math.sqrt');
+
+                        expressao = expressao.replace(/\^/g, '**');
+                        expressao = expressao.replace(/x/gi, '*');
+                        
+
+
+                        let resultado = eval(expressao);
+                        resultado = parseFloat(resultado.toFixed(2));
+                        if (!isNaN(resultado)) {
+                            this.novoPaciente.exam3 = resultado;
+                        } else {
+                            console.error('Resultado inválido:', resultado);
+                        }
+                    } catch (error) {
+                        console.error('Erro ao calcular:', error);
+                    }
+                }
+            },
+            realizarCalculoEdit() {
+                const exam1 = this.pacienteEditado.exam1;
+                const exam4 = this.pacienteEditado.exam4;
+
+                const calculo = this.pacienteEditado.calculation;
+
+                if (calculo && calculo.trim() !== '') {
+                    try {
+                        let expressao = calculo.replace(/exame1/g, exam1).replace(/exame4/g, exam4);
+
+                        expressao = expressao.replace(/raiz_quadrada/g, 'Math.sqrt');
+
+                        expressao = expressao.replace(/\^/g, '**');
+                        expressao = expressao.replace(/x/gi, '*');
+
+                        let resultado = eval(expressao);
+                        resultado = parseFloat(resultado.toFixed(2));
+                        if (!isNaN(resultado)) {
+                            this.pacienteEditado.exam3 = resultado;
+                        } else {
+                            console.error('Resultado inválido:', resultado);
+                        }
+                    } catch (error) {
+                        console.error('Erro ao calcular:', error);
+                    }
+                }
+            },
             async adicionarNovoPaciente() {
                 this.submitted = true; 
                
@@ -215,7 +350,9 @@
                     if (!this.novoPaciente) {
                         throw new Error('Objeto novoPaciente não foi inicializado corretamente.');
                     }
-
+                    if (this.novoPaciente.exam2) {
+                        this.novoPaciente.exam2 = this.novoPaciente.exam2.toUpperCase();
+                    }
                     const response = await fetch('http://localhost:5111/api/patient/', {
                         method: 'POST',
                         headers: {
@@ -236,45 +373,51 @@
                 }
             },
             getExame1Class(paciente) {
-                if (paciente.age < 10 && paciente.age > 5) {
+                if (paciente.age < 10 && paciente.exam1 >= 5 && paciente.exam1 <= 10) {
                     return 'table-success';
-                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 10 && paciente.age <= 15) {
+                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 10 && paciente.exam1 >= 10 && paciente.exam1 <= 15 ) {
                     return 'table-success';
-                } else if (paciente.sex === 'FEMININO' && paciente.age >= 10 && paciente.age <= 20) {
+                } else if (paciente.sex === 'FEMININO' && paciente.age >= 10 && paciente.exam1 >= 10 && paciente.exam1 <= 20) {
                     return 'table-success';
                 } else {
                     return 'table-danger';
                 }
             },
             getExame1Text(paciente) {
-                if (paciente.age <= 10 && paciente.age >= 5) {
-                    return 'Valor entre 5 e 10.';
-                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 10 && paciente.age <= 15) {
-                    return 'Valor entre 10 e 15.';
-                } else if (paciente.sex === 'FEMININO' && paciente.age >= 10 && paciente.age <= 20) {
-                    return 'Valor entre 10 e 20.';
+                if (paciente.age < 10 && paciente.exam1 >= 5 && paciente.exam1 <= 10) {
+                    return 'POSITIVO';
+                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 10 && paciente.exam1 >= 10 && paciente.exam1 <= 15) {
+                    return 'POSITIVO';
+                } else if (paciente.sex === 'FEMININO' && paciente.age >= 10 && paciente.exam1 >= 10 && paciente.exam1 <= 20) {
+                    return 'POSITIVO';
                 } else {
-                    return 'Valor acima de 20';
+                    return 'NEGATIVO';
                 }
             },
             getExame2Class(paciente) {
-                if (paciente.age < 12 || (paciente.age >= 12 && paciente.age <= 18)) {
+               if (paciente.age < 12 && paciente.exam2 == "CRIANÇA") {
+                    return 'table-success';
+                } else if (paciente.age >= 12 && paciente.age < 18 && paciente.exam2 == "ADOLESCENTE" ) {
+                    return 'table-success';
+                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 18 && paciente.exam2 == "HOMEM ADULTO") {
+                    return 'table-success';
+                } else if (paciente.sex === 'FEMININO' && paciente.age >= 18 && paciente.exam2 == "MULHER ADULTA") {
                     return 'table-success';
                 } else {
                     return 'table-danger';
                 }
             },
             getExame2Text(paciente) {
-                if (paciente.age < 12) {
-                    return 'CRIANÇA';
-                } else if (paciente.age >= 12 && paciente.age <= 18) {
-                    return 'ADOLESCENTE';
-                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 18) {
-                    return 'HOMEM ADULTO';
-                } else if (paciente.sex === 'FEMININO' && paciente.age >= 18) {
-                    return 'MULHER ADULTA';
+                if (paciente.age < 12 && paciente.exam2 == "CRIANÇA") {
+                    return 'POSITIVO';
+                } else if (paciente.age >= 12 && paciente.age <= 18 == "ADOLESCENTE") {
+                    return 'POSITIVO';
+                } else if (paciente.sex === 'MASCULINO' && paciente.age >= 18 && paciente.exam2 == "HOMEM ADULTO") {
+                    return 'POSITIVO';
+                } else if (paciente.sex === 'FEMININO' && paciente.age >= 18 && paciente.exam2 == "MULHER ADULTA") {
+                    return 'POSITIVO';
                 } else {
-                    return 'ADULTO';
+                    return 'NEGATIVO';
                 }
             },
             abrirModal() {

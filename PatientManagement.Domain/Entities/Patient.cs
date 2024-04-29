@@ -12,6 +12,11 @@ namespace PatientManagement.Domain.Entities
         public string Name { get; set; }
         public int Age { get; set; }
         public string Sex { get; set; }
+        public decimal Exam1 { get; set; }
+        public string Exam2 { get; set; }
+        public decimal Exam3 { get; set;}
+        public decimal Exam4 { get; set;}
+        public string Calculation { get; set;}
         
     }
 }
