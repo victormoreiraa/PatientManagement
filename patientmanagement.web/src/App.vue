@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <index />
+        <MainPage />
     </div>
 </template>
 
 <script>
-    import index from './components/Index.vue';
+    import MainPage from '@/components/MainPage.vue';
 
     export default {
         components: {
-            index
+            MainPage
         }
     }
 </script>
